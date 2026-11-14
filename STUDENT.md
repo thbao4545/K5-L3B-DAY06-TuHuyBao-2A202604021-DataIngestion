@@ -5,4 +5,4 @@
 - Lớp: L3B
 - Chủ đề và corpus: Text-to-SQL survey (2026Reimagining-Text-to-SQL.pdf, 47 trang)
 - Repo bài nộp: https://github.com/thbao4545/K5-L3B-DAY06-TuHuyBao-2A202604021-DataIngestion
-- Commit chốt bài:
+- Commit chốt bài: 62fd780 (mã nguồn, benchmark, kết quả và báo cáo)
