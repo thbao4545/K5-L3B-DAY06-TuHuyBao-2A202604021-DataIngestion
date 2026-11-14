@@ -1,0 +1,122 @@
+{
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "dimensions": 384,
+  "params": {
+    "fixed": [
+      800,
+      100
+    ],
+    "paragraph_max": 1000
+  },
+  "timings": {
+    "A_fixed": {
+      "chunks": 252,
+      "seconds": 7.89
+    },
+    "B_paragraph": {
+      "chunks": 199,
+      "seconds": 6.67
+    }
+  },
+  "summary": {
+    "A_fixed": {
+      "all": {
+        "n": 20,
+        "hit_at_1": 10,
+        "hit_at_1_rate": 0.5,
+        "hit_at_3": 18,
+        "hit_at_3_rate": 0.9,
+        "filter_compliance": "1/5"
+      },
+      "dev": {
+        "n": 15,
+        "hit_at_1": 9,
+        "hit_at_1_rate": 0.6,
+        "hit_at_3": 14,
+        "hit_at_3_rate": 0.9333333333333333,
+        "filter_compliance": "1/4"
+      },
+      "test": {
+        "n": 5,
+        "hit_at_1": 1,
+        "hit_at_1_rate": 0.2,
+        "hit_at_3": 4,
+        "hit_at_3_rate": 0.8,
+        "filter_compliance": "0/1"
+      }
+    },
+    "B_paragraph": {
+      "all": {
+        "n": 20,
+        "hit_at_1": 12,
+        "hit_at_1_rate": 0.6,
+        "hit_at_3": 17,
+        "hit_at_3_rate": 0.85,
+        "filter_compliance": "2/5"
+      },
+      "dev": {
+        "n": 15,
+        "hit_at_1": 9,
+        "hit_at_1_rate": 0.6,
+        "hit_at_3": 13,
+        "hit_at_3_rate": 0.8666666666666667,
+        "filter_compliance": "2/4"
+      },
+      "test": {
+        "n": 5,
+        "hit_at_1": 3,
+        "hit_at_1_rate": 0.6,
+        "hit_at_3": 4,
+        "hit_at_3_rate": 0.8,
+        "filter_compliance": "0/1"
+      }
+    },
+    "C_paragraph_filter": {
+      "all": {
+        "n": 20,
+        "hit_at_1": 12,
+        "hit_at_1_rate": 0.6,
+        "hit_at_3": 17,
+        "hit_at_3_rate": 0.85,
+        "filter_compliance": "5/5"
+      },
+      "dev": {
+        "n": 15,
+        "hit_at_1": 9,
+        "hit_at_1_rate": 0.6,
+        "hit_at_3": 13,
+        "hit_at_3_rate": 0.8666666666666667,
+        "filter_compliance": "4/4"
+      },
+      "test": {
+        "n": 5,
+        "hit_at_1": 3,
+        "hit_at_1_rate": 0.6,
+        "hit_at_3": 4,
+        "hit_at_3_rate": 0.8,
+        "filter_compliance": "1/1"
+      }
+    }
+  },
+  "manual_samples": {
+    "grounding_questions": [
+      "q20",
+      "q16",
+      "q17",
+      "q18",
+      "q19"
+    ],
+    "coherence_pages": [
+      1,
+      2,
+      10,
+      18,
+      21,
+      24,
+      31,
+      32,
+      38,
+      43
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-"""Choose a real embedding provider (API or local) and implement this contract."""
+"""Local embedding provider (sentence-transformers). No mock fallback."""
 from typing import Protocol
 
 
@@ -16,14 +16,26 @@ class Embedder(Protocol):
 
 
 class MyEmbedder:
-    """TODO: implement a provider adapter; do not silently fall back to mock vectors."""
+    """Adapter over a local sentence-transformers model (cosine-normalized vectors)."""
 
     def __init__(self, model_name: str) -> None:
+        if not model_name:
+            raise ValueError("model_name is required (set EMBEDDING_MODEL)")
+        from sentence_transformers import SentenceTransformer  # fails loudly if missing
         self.model_name = model_name
-        raise NotImplementedError("TODO: initialize real embedder and dimensions")
+        self._model = SentenceTransformer(model_name)
+        self.dimensions = int(self._model.get_sentence_embedding_dimension())
+        self._e5 = "e5" in model_name.lower()  # e5 models expect query:/passage: prefixes
+
+    def _encode(self, texts: list[str]) -> list[list[float]]:
+        if not texts:
+            return []
+        vectors = self._model.encode(texts, normalize_embeddings=True,
+                                     batch_size=32, show_progress_bar=False)
+        return [[float(x) for x in v] for v in vectors]
 
     def embed_documents(self, texts: list[str]) -> list[list[float]]:
-        raise NotImplementedError("TODO: embed_documents")
+        return self._encode([f"passage: {t}" for t in texts] if self._e5 else texts)
 
     def embed_query(self, question: str) -> list[float]:
-        raise NotImplementedError("TODO: embed_query")
+        return self._encode([f"query: {question}" if self._e5 else question])[0]
