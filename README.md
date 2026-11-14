@@ -45,3 +45,21 @@ Dùng cùng dữ liệu, model và câu hỏi cho cả ba cấu hình. Tách **1
 | Cách nộp bài | [SUBMISSION.md](SUBMISSION.md) |
 
 [data/format-example.json](data/format-example.json) chỉ minh họa định dạng, không phải corpus đủ điều kiện. Phần xử lý và benchmark do bạn tự hiện thực; không bắt buộc xây chatbot.
+
+---
+
+## Bài nộp — Từ Huy Bảo · 2A202604021 · L3B
+
+Corpus: `starter/data/2026Reimagining-Text-to-SQL.pdf` (47 trang, xem `starter/data/manifest.json`). Benchmark: `starter/data/benchmark.json` (20 câu: 15 dev / 5 test, 5 câu có filter `section`). Embedding: `sentence-transformers/all-MiniLM-L6-v2` (384 chiều, chạy local). Vector store: PostgreSQL 16 + pgvector (Docker).
+
+Chạy lại (từ `starter/`):
+
+```bash
+python -m venv .venv && .venv/Scripts/activate        # Windows PowerShell: .venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt sentence-transformers
+cp .env.example .env                                   # Windows: Copy-Item .env.example .env
+docker compose -p day6_student_starter up -d --wait
+python -m src.run
+```
+
+Kết quả: `starter/results/summary.json`, `traces.json`; audit thủ công: `starter/results/manual_audit/`; log thí nghiệm: `artifacts/experiment_log.csv`; báo cáo: `report/individual/2A202604021_TuHuyBao.md`.

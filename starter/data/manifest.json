@@ -1,0 +1,21 @@
+{
+  "documents": [
+    {
+      "document_id": "2026Reimagining-Text-to-SQL",
+      "file": "starter/data/2026Reimagining-Text-to-SQL.pdf",
+      "title": "Reimagining Text-to-SQL (survey, 2026)",
+      "url_or_how_obtained": "https://arxiv.org/pdf/2611.00171v1",
+      "permission": "Author states they have the right to share this file (verified by the student); TODO: add license/source note",
+      "pages_total": 47,
+      "content_pages": 47,
+      "page_rule": "a page counts as content if its normalized text has >= 200 characters; empty pages: none; includes reference pages",
+      "metadata": [
+        "document_id",
+        "source",
+        "page (1-based physical PDF page)",
+        "section (last numbered heading on the page)"
+      ]
+    }
+  ],
+  "benchmark": "starter/data/benchmark.json (20 questions: 15 dev / 5 test, 5 with section filter)"
+}

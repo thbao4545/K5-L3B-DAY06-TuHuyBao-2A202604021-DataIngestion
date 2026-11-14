@@ -1,4 +1,4 @@
-strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+﻿strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
+A,fixed-size,800,100,"page, section",none,sentence-transformers/all-MiniLM-L6-v2,Baseline: cuts ignore structure,9/15,14/15,1/5,4/5,"252 chunks, 7.89s embed+store; coherence mean 0.80/2"
+B,paragraph,1000,0,"page, section",none,sentence-transformers/all-MiniLM-L6-v2,Keeping paragraphs whole improves coherence/Hit@1,9/15,13/15,3/5,4/5,"199 chunks, 6.67s embed+store; coherence mean 1.70/2; A vs B also differs in size limit (800 vs 1000)"
+C,paragraph (same as B),1000,0,"page, section","section (exact match, 5 questions)",sentence-transformers/all-MiniLM-L6-v2,Metadata filter enforces scope without hurting recall,9/15,13/15,3/5,4/5,Reuses B's index; only difference vs B is the filter; filter compliance 5/5 vs 2/5

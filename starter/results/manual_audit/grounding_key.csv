@@ -1,0 +1,16 @@
+﻿id,strategy,question_id
+g01,A_fixed,q18
+g02,C_paragraph_filter,q16
+g03,A_fixed,q16
+g04,C_paragraph_filter,q18
+g05,C_paragraph_filter,q20
+g06,B_paragraph,q18
+g07,A_fixed,q19
+g08,B_paragraph,q20
+g09,B_paragraph,q16
+g10,B_paragraph,q19
+g11,C_paragraph_filter,q19
+g12,A_fixed,q17
+g13,C_paragraph_filter,q17
+g14,B_paragraph,q17
+g15,A_fixed,q20
